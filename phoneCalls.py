@@ -29,5 +29,5 @@ class SprawdzDzwoniacegoTest(TestCase):
         wynik = mp.pobierz_najczesciej_dzwoniacego()
         self.assertEqual((226,5), wynik)
 if __name__ == '__main__':
-    print(Polaczenia('phoneCalls.csv').pobierz_najczesciej_dzwoniacego())
+    print(Polaczenia(inputFile).pobierz_najczesciej_dzwoniacego())
 
