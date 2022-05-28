@@ -1,15 +1,16 @@
 import requests
 import csv
+from unittest import TestCase
 users = []
 slownik= {}
 url = 'https://raw.githubusercontent.com/khashishin/repozytorium_z_plikiem_polaczenia/main/phoneCalls.csv'
 r = requests.get(url, allow_redirects=True)
 open('phoneCalls.csv', 'wb').write(r.content)
 class Polaczenia():
-     def __init__(self, filename):
+    def __init__(self, filename):
         self.filename = filename
-    
-    def pobierz_najczesciej_dzwoniacego():
+
+    def pobierz_najczesciej_dzwoniacego(self):
         with open(self.filename, 'r') as fin:
             reader = csv.reader(fin, delimiter=",")
             next(reader, None)
@@ -28,6 +29,5 @@ class SprawdzDzwoniacegoTest(TestCase):
         wynik = mp.pobierz_najczesciej_dzwoniacego()
         self.assertEqual((226,5), wynik)
 if __name__ == '__main__':
-    print(Polaczenia(input()).pobierz_najczesciej_dzwoniacego())
-
+    print(Polaczenia('phoneCalls.csv').pobierz_najczesciej_dzwoniacego())
 
