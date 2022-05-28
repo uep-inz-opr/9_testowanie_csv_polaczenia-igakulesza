@@ -5,8 +5,10 @@ slownik= {}
 url = 'https://raw.githubusercontent.com/khashishin/repozytorium_z_plikiem_polaczenia/main/phoneCalls.csv'
 r = requests.get(url, allow_redirects=True)
 open('phoneCalls.csv', 'wb').write(r.content)
-class Polaczenia(filename):
-    self.filename=filename
+class Polaczenia():
+     def __init__(self, filename):
+        self.filename = filename
+    
     def pobierz_najczesciej_dzwoniacego():
         with open(self.filename, 'r') as fin:
             reader = csv.reader(fin, delimiter=",")
